@@ -12,4 +12,7 @@ function videoTimeUpdate (evt) {
 
 player.on('timeupdate', throttle(videoTimeUpdate, 1000));
 
-player.setCurrentTime(localStorage.getItem(LOCASTORAGE_KEY));
+const saveTime = localStorage.getItem(LOCASTORAGE_KEY);
+if(saveTime) {
+    player.setCurrentTime(saveTime);
+}
